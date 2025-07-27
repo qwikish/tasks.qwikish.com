@@ -1,7 +1,7 @@
 "use client"
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useEffect } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Sidebar } from "../src/components/layout/Sidebar"
 import { KanbanBoard } from "../src/components/kanban/KanbanBoard"
 import { PomodoroTimer } from "../src/components/pomodoro/PomodoroTimer"
@@ -14,21 +14,27 @@ import { SettingsPage } from "../src/pages/SettingsPage"
 import { DailyPlannerPage } from "../src/pages/DailyPlannerPage"
 
 function Dashboard() {
+  const { tasks } = useTaskStore()
+
+  const totalTasks = tasks.length
+  const inProgressTasks = tasks.filter((task) => task.status === "in-progress").length
+  const completedTasks = tasks.filter((task) => task.status === "completed").length
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Total Tasks</h3>
-          <p className="text-3xl font-bold text-orange-500 mt-2">24</p>
+          <p className="text-3xl font-bold text-orange-500 mt-2">{totalTasks}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">In Progress</h3>
-          <p className="text-3xl font-bold text-blue-500 mt-2">8</p>
+          <p className="text-3xl font-bold text-blue-500 mt-2">{inProgressTasks}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Completed</h3>
-          <p className="text-3xl font-bold text-green-500 mt-2">12</p>
+          <p className="text-3xl font-bold text-green-500 mt-2">{completedTasks}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Focus Time</h3>
