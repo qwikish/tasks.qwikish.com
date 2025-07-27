@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import type { Task, Project, Tag, User, PomodoroSession, TaskStatus } from "../types"
+import type { Task, Project, Tag, User, PomodoroSession, TaskStatus } from "../src/types"
 
 interface TaskStore {
   tasks: Task[]
@@ -151,4 +151,4 @@ export const useTaskStore = create<TaskStore>()(
 )
 
 // Ensure named export is available
-export { useTaskStore as default }
+export default useTaskStore

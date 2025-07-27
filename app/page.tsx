@@ -2,39 +2,33 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useEffect } from "react"
-import { Sidebar } from "./components/layout/Sidebar"
-import { KanbanBoard } from "./components/kanban/KanbanBoard"
-import { PomodoroTimer } from "./components/pomodoro/PomodoroTimer"
-import { useTaskStore } from "./store/useTaskStore"
-import { mockTasks, mockProjects, mockTags } from "./data/mockData"
-import { CalendarPage } from "./pages/CalendarPage"
-import { AnalyticsPage } from "./pages/AnalyticsPage"
-import { ProjectsPage } from "./pages/ProjectsPage"
-import { SettingsPage } from "./pages/SettingsPage"
-import { DailyPlannerPage } from "./pages/DailyPlannerPage"
+import { Sidebar } from "../src/components/layout/Sidebar"
+import { KanbanBoard } from "../src/components/kanban/KanbanBoard"
+import { PomodoroTimer } from "../src/components/pomodoro/PomodoroTimer"
+import { useTaskStore } from "../src/store/useTaskStore"
+import { mockTasks, mockProjects, mockTags } from "../src/data/mockData"
+import { CalendarPage } from "../src/pages/CalendarPage"
+import { AnalyticsPage } from "../src/pages/AnalyticsPage"
+import { ProjectsPage } from "../src/pages/ProjectsPage"
+import { SettingsPage } from "../src/pages/SettingsPage"
+import { DailyPlannerPage } from "../src/pages/DailyPlannerPage"
 
 function Dashboard() {
-  const { tasks } = useTaskStore()
-
-  const totalTasks = tasks.length
-  const inProgressTasks = tasks.filter((task) => task.status === "in-progress").length
-  const completedTasks = tasks.filter((task) => task.status === "completed").length
-
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Total Tasks</h3>
-          <p className="text-3xl font-bold text-orange-500 mt-2">{totalTasks}</p>
+          <p className="text-3xl font-bold text-orange-500 mt-2">24</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">In Progress</h3>
-          <p className="text-3xl font-bold text-blue-500 mt-2">{inProgressTasks}</p>
+          <p className="text-3xl font-bold text-blue-500 mt-2">8</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Completed</h3>
-          <p className="text-3xl font-bold text-green-500 mt-2">{completedTasks}</p>
+          <p className="text-3xl font-bold text-green-500 mt-2">12</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900">Focus Time</h3>
@@ -45,7 +39,7 @@ function Dashboard() {
   )
 }
 
-function App() {
+export default function Page() {
   const { tasks, projects, tags, addTask, addProject, addTag } = useTaskStore()
 
   // Initialize with mock data if empty
@@ -81,5 +75,3 @@ function App() {
     </Router>
   )
 }
-
-export default App
