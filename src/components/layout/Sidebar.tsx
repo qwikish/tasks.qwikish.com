@@ -22,6 +22,7 @@ const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Kanban Board", href: "/kanban", icon: LayoutDashboard },
   { name: "Calendar", href: "/calendar", icon: Calendar },
+  { name: "Daily Planner", href: "/planner", icon: Calendar },
   { name: "Pomodoro", href: "/pomodoro", icon: Timer },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "Projects", href: "/projects", icon: FolderOpen },

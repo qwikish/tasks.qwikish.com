@@ -7,6 +7,11 @@ import { KanbanBoard } from "./components/kanban/KanbanBoard"
 import { PomodoroTimer } from "./components/pomodoro/PomodoroTimer"
 import { useTaskStore } from "./store/useTaskStore"
 import { mockTasks, mockProjects, mockTags } from "./data/mockData"
+import { CalendarPage } from "./pages/CalendarPage"
+import { AnalyticsPage } from "./pages/AnalyticsPage"
+import { ProjectsPage } from "./pages/ProjectsPage"
+import { SettingsPage } from "./pages/SettingsPage"
+import { DailyPlannerPage } from "./pages/DailyPlannerPage"
 
 function Dashboard() {
   return (
@@ -59,42 +64,11 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/kanban" element={<KanbanBoard />} />
             <Route path="/pomodoro" element={<PomodoroTimer />} />
-            <Route
-              path="/calendar"
-              element={
-                <div className="p-6">
-                  <h1 className="text-2xl font-bold">Calendar View</h1>
-                  <p>Coming soon...</p>
-                </div>
-              }
-            />
-            <Route
-              path="/analytics"
-              element={
-                <div className="p-6">
-                  <h1 className="text-2xl font-bold">Analytics</h1>
-                  <p>Coming soon...</p>
-                </div>
-              }
-            />
-            <Route
-              path="/projects"
-              element={
-                <div className="p-6">
-                  <h1 className="text-2xl font-bold">Projects</h1>
-                  <p>Coming soon...</p>
-                </div>
-              }
-            />
-            <Route
-              path="/settings"
-              element={
-                <div className="p-6">
-                  <h1 className="text-2xl font-bold">Settings</h1>
-                  <p>Coming soon...</p>
-                </div>
-              }
-            />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/planner" element={<DailyPlannerPage />} />
           </Routes>
         </main>
       </div>
